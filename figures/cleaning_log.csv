@@ -1,0 +1,21 @@
+table,rule,rows affected,action
+workspaces,"Internal account (W_INTERNAL, channel 'internal')",1,removed
+workspaces,Inconsistent company_size labels harmonised,859,relabelled
+workspaces,Missing company_size,267,set to 'unknown'
+workspaces,Upgrade before creation or after extraction,0,check only
+workspaces,Upgrade date without plan (or plan without date),0,check only
+workspaces,invite_loop workspace created before its origin workspace,66,"kept, excluded from loop timing"
+users,Exact duplicate rows,474,removed
+users,Users of the internal workspace,140,removed
+users,joined_date in DD/MM/YYYY format,956,converted
+users,Duplicate user_id after deduplication,0,check only
+users,Joined after 30 June 2026,0,check only
+users,Joined before the workspace was created,0,check only
+users,Inviter not found in users table,1591,kept (member still valid)
+monthly_revenue,Exact duplicate rows,22,removed
+monthly_revenue,Negative MRR (sign error: |MRR| = seats x price),25,absolute value
+monthly_revenue,Same workspace billed twice in a month,0,check only
+monthly_revenue,MRR different from seats x list price,0,check only
+monthly_revenue,Revenue for an unknown or free workspace,0,check only
+monthly_revenue,Upgraded workspaces with no invoice (all upgraded in June 2026),76,kept (billed from next month)
+marketing_spend,"Missing, negative or duplicated spend",0,check only

@@ -1,0 +1,157 @@
+\documentclass[aspectratio=169,10pt]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\graphicspath{{./}{figures/}}
+
+% ------------------------------------------------------------------
+% Sober theme
+% ------------------------------------------------------------------
+\definecolor{navy}{RGB}{30,50,90}
+\definecolor{accent}{RGB}{196,78,82}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{fg=navy,bg=white}
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{structure}{fg=navy}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamertemplate{frametitle}{\vspace{6pt}\insertframetitle\par\vspace{-2pt}{\color{accent}\rule{2cm}{1.5pt}}}
+\setbeamertemplate{itemize items}{\color{accent}\textbullet}
+\setbeamertemplate{footline}{\hfill{\scriptsize\color{gray}\insertframenumber\,/\,\inserttotalframenumber}\hspace{8pt}\vspace{6pt}}
+
+\newcommand{\eur}{\,\texteuro}
+\newcommand{\figtitle}[1]{{\small\bfseries\color{navy}#1}\\[2pt]}
+\newcommand{\bignum}[2]{\begin{minipage}{0.3\textwidth}\centering{\Huge\bfseries\color{accent}#1}\\[4pt]{\small #2}\end{minipage}}
+
+\title{Tasko: what really drives growth?}
+\subtitle{Growth Modeling \& Data-Driven Strategy --- Final project}
+\author{Group [number] --- [Names]}
+\date{IMT 2026}
+
+\begin{document}
+
+% 1 ----------------------------------------------------------------
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+% 2 ----------------------------------------------------------------
+\begin{frame}{Growth is product-led \emph{after} the sign-up}
+  \vfill
+  \centering
+  \bignum{$\times$2.5}{conversion once a team\\of three is formed}\hfill
+  \bignum{1 in 5}{new workspaces now come\\from the guest loop}\hfill
+  \bignum{1.2}{LTV\,:\,CAC of paid search\\(on revenue)}
+  \vfill
+\end{frame}
+
+% 3 ----------------------------------------------------------------
+\begin{frame}{The leak is free to paid, and activation controls it}
+  \centering
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}\centering
+      \figtitle{Funnel, cohorts Jan 2025 -- Mar 2026}
+      \includegraphics[width=\linewidth]{fig02_funnel.png}
+    \end{column}
+    \begin{column}{0.46\textwidth}\centering
+      \figtitle{Aha moment: a team of three}
+      \includegraphics[width=\linewidth]{fig01_aha_moment.png}
+    \end{column}
+  \end{columns}
+  \vspace{8pt}
+  {\small Activated workspaces: 13.8\,\% conversion vs 5.6\,\% --- 70\,\% of all payers}
+\end{frame}
+
+% 4 ----------------------------------------------------------------
+\begin{frame}{A loop that multiplies, but does not replace, acquisition}
+  \centering
+  \figtitle{New workspaces per month, by channel}
+  \includegraphics[width=0.72\textwidth]{fig03_new_workspaces.png}\\[4pt]
+  {\small Effective K at 180 days: 0.09 $\rightarrow$ 0.12 \quad$\cdot$\quad K $\ll$ 1 \quad$\cdot$\quad median delay 146 days}
+\end{frame}
+
+% 5 ----------------------------------------------------------------
+\begin{frame}{Paid search converts least, even like for like}
+  \centering
+  \figtitle{90-day conversion (\%), within size and within activation}
+  \includegraphics[width=0.7\textwidth]{fig06_like_for_like.png}\\[4pt]
+  {\small Same size mix across channels \quad$\cdot$\quad gap persists among activated workspaces}
+\end{frame}
+
+% 6 ----------------------------------------------------------------
+\begin{frame}{Only content SEO approaches the 3\,:\,1 benchmark}
+  \centering
+  \figtitle{CAC vs revenue LTV, and LTV\,:\,CAC by paid channel}
+  \includegraphics[width=0.8\textwidth]{fig07_unit_economics.png}\\[4pt]
+  {\small Payback: SEO 9.5 months \quad$\cdot$\quad paid search 31.5 \quad$\cdot$\quad partners 31.7}
+\end{frame}
+
+% 7 ----------------------------------------------------------------
+\begin{frame}{September 2025: the onboarding step change}
+  \centering
+  \begin{columns}[T]
+    \begin{column}{0.47\textwidth}\centering
+      \figtitle{Teammates invited in the first week}
+      \includegraphics[width=\linewidth]{fig11_change_detection.png}
+    \end{column}
+    \begin{column}{0.51\textwidth}\centering
+      \figtitle{Before vs after 15 September 2025}
+      \includegraphics[width=\linewidth]{fig12_before_after.png}
+    \end{column}
+  \end{columns}
+  \vspace{8pt}
+  {\small Activation 38\,\% $\rightarrow$ 58\,\% \quad$\cdot$\quad conversion 8.1\,\% $\rightarrow$ 10.8\,\% \quad$\cdot$\quad churn unchanged \quad$\cdot$\quad paid search flat}
+\end{frame}
+
+% 8 ----------------------------------------------------------------
+\begin{frame}{Backtest: the model is fragile where the business changed}
+  \centering
+  \figtitle{Calibrated to December 2025, tested on January -- June 2026}
+  \includegraphics[width=\textwidth]{fig14_backtest.png}\\[4pt]
+  {\small With post-change conversion and 2026 ARPA: MAPE MRR 22.3\,\% $\rightarrow$ 6.2\,\%}
+\end{frame}
+
+% 9 ----------------------------------------------------------------
+\begin{frame}{The outcome is decided after the sign-up}
+  \centering
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}\centering
+      \figtitle{MRR to June 2027: 42 / 58 / 109\,k\eur}
+      \includegraphics[width=\linewidth]{fig15_scenarios.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}\centering
+      \figtitle{One lever at a time, $\pm$20\,\%}
+      \includegraphics[width=\linewidth]{fig16_sensitivity.png}
+    \end{column}
+  \end{columns}
+  \vspace{8pt}
+  {\small +20\,\% conversion: +14\,\% MRR \quad$\cdot$\quad +20\,\% paid search budget: +3.3\,\%}
+\end{frame}
+
+% 10 ---------------------------------------------------------------
+\begin{frame}{North Star, test and recommendations}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}\centering
+      \figtitle{NSM: workspaces reaching a team of three}
+      \includegraphics[width=\linewidth]{fig13_north_star.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{\color{navy}A/B test}
+      \begin{itemize}\small
+        \item Optional ``invite two teammates'' step for paid search sign-ups
+        \item Activation 34.5\,\% $\rightarrow$ 42.5\,\%: 577 per arm, $\approx$ 6 months
+      \end{itemize}
+      \vspace{6pt}
+      \textbf{\color{navy}Recommendations}
+      \begin{itemize}\small
+        \item Steer on the team of three
+        \item Cap paid search, grow SEO
+        \item Stop or renegotiate partners
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\end{document}
